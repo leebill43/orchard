@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgycd1qib10cv"]
+
+[ext_resource type="Script" uid="uid://bdsgk3wlcfv20" path="res://场景/主场景.gd" id="1_3fatf"]
+[ext_resource type="Script" uid="uid://jllwpa0upj6y" path="res://组件/卡牌管理器.gd" id="1_qysdn"]
+[ext_resource type="Script" uid="uid://4handyqykb0u" path="res://组件/手牌.gd" id="2_o0xaq"]
+[ext_resource type="Script" uid="uid://3g7113quxq1l" path="res://组件/弃牌堆.gd" id="3_3fatf"]
+[ext_resource type="Script" uid="uid://dpevion6ovhpe" path="res://场景/相机/camera_2d.gd" id="4_o0xaq"]
+[ext_resource type="Texture2D" uid="uid://dxcxn77e6fdwq" path="res://icon.svg" id="4_t7rjn"]
+
+[node name="主场景" type="Node2D"]
+script = ExtResource("1_3fatf")
+
+[node name="卡牌管理器" type="Node2D" parent="."]
+script = ExtResource("1_qysdn")
+
+[node name="手牌" type="Node2D" parent="."]
+script = ExtResource("2_o0xaq")
+
+[node name="弃牌堆" type="Node2D" parent="."]
+script = ExtResource("3_3fatf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 322)
+script = ExtResource("4_o0xaq")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(82, 90)
+texture = ExtResource("4_t7rjn")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg0dger6ic8xt"]
+
+[ext_resource type="Script" uid="uid://sen5asdconl1" path="res://卡牌/色块/红.gd" id="1_derbg"]
+
+[node name="红" type="Node2D"]
+script = ExtResource("1_derbg")
