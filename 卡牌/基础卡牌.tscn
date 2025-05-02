@@ -1,6 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://cix68qnpbw46f"]
+[gd_scene load_steps=3 format=3 uid="uid://cix68qnpbw46f"]
 
 [ext_resource type="Script" uid="uid://bib6ym8vgepph" path="res://卡牌/基础卡牌.gd" id="1_s4t52"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s4t52"]
+radius = 30.1496
+
 [node name="基础卡牌" type="Node2D"]
 script = ExtResource("1_s4t52")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-48, -96)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(48, -96)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(-48, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(48, 0)
+
+[node name="Marker2D5" type="Marker2D" parent="."]
+position = Vector2(-48, 96)
+
+[node name="Marker2D6" type="Marker2D" parent="."]
+position = Vector2(48, 96)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s4t52")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

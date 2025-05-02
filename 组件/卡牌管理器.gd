@@ -17,7 +17,6 @@ func _ready() -> void:
 		#add_child(Card)
 	pass
 
-
 func _process(delta: float) -> void:
 	if card_being_dragged:
 		var mouse_pos = get_global_mouse_position()
@@ -27,7 +26,6 @@ func start_drag(card):
 	card_being_dragged = card
 
 func finish_drag():
-
 	var card_slot_found = raycast_check_for_card_slot()
 	if card_slot_found:
 		card_being_dragged.global_position = card_slot_found.global_position
@@ -41,7 +39,6 @@ func finish_drag():
 func _input(event: InputEvent) -> void:
 	var card = raycast_check_for_card()
 	var tween = create_tween().set_parallel(true)
-	
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
@@ -67,7 +64,6 @@ func _input(event: InputEvent) -> void:
 					$"../GridContainer".position.y += 48
 					$"../GridContainer".position.x += 48
 				rotation_allowed = true
-				
 
 func connect_card_parents(card):
 	card.connect("hovered",on_hovered_over_card)

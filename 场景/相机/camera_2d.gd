@@ -1,6 +1,6 @@
 extends Camera2D
-
-var target_position = Vector2(577,322)
+var flag =false
+var target_position = Vector2(576,324)
 
 func _ready():
 	make_current()
@@ -8,24 +8,32 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previe.ous fram
 func _process(delta):
+	flag = false
 	if Input.is_action_just_pressed("up"):
 		target_position.y -= 100
+		flag = true
 	if Input.is_action_just_pressed("down"):
 		target_position.y += 100
+		flag = true
 	if Input.is_action_just_pressed("left"):
 		target_position.x -= 100
+		flag = true
 	if Input.is_action_just_pressed("right"):
 		target_position.x += 100
+		flag = true
 	if Input.is_action_just_pressed("mouse_down"):
 		zoom.x -= 0.1
 		zoom.y -= 0.1
+		flag = true
 	if Input.is_action_just_pressed("mouse_up"):
 		zoom.x += 0.1
 		zoom.y += 0.1
-	
-	#acquire_target()
+		flag = true
 	global_position = global_position.lerp(target_position, 1.0 - exp(-delta * 20))
-
+	#acquire_target()
+	if flag:
+		#global_position = global_position.lerp(target_position, 1.0 - exp(-delta * 20))
+		$"../手牌".return_pos()
 
 
 #func acquire_target():

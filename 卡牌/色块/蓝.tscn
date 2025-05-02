@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp2pd4sm7hvwo"]
+[gd_scene load_steps=6 format=3 uid="uid://dp2pd4sm7hvwo"]
 
 [ext_resource type="Script" uid="uid://bxj4tciqwe37e" path="res://卡牌/色块/蓝.gd" id="1_fi60b"]
+[ext_resource type="Texture2D" uid="uid://cellit228sm1s" path="res://卡牌/色块/blue.png" id="2_gvau7"]
+[ext_resource type="Texture2D" uid="uid://dpr3wfwf5a3rh" path="res://卡牌/色块/color.png" id="3_niq6l"]
+[ext_resource type="Texture2D" uid="uid://dx2xx4otqq4cf" path="res://卡牌/色块/false.png" id="4_o447c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvau7"]
 
 [node name="蓝" type="Node2D"]
 script = ExtResource("1_fi60b")
+
+[node name="Blue" type="Sprite2D" parent="."]
+texture = ExtResource("2_gvau7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gvau7")
+
+[node name="Color" type="Sprite2D" parent="."]
+texture = ExtResource("3_niq6l")
+hframes = 4
+
+[node name="False" type="Sprite2D" parent="."]
+texture = ExtResource("4_o447c")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

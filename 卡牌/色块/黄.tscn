@@ -1,35 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://deuwabqaamope"]
+[gd_scene load_steps=6 format=3 uid="uid://deuwabqaamope"]
 
 [ext_resource type="Script" uid="uid://dpr122dv0tom7" path="res://卡牌/色块/黄.gd" id="1_lbve0"]
+[ext_resource type="Texture2D" uid="uid://cji0hh5s4nnaj" path="res://卡牌/色块/yellow.png" id="2_nv82j"]
+[ext_resource type="Texture2D" uid="uid://dpr3wfwf5a3rh" path="res://卡牌/色块/color.png" id="3_g2a6i"]
+[ext_resource type="Texture2D" uid="uid://dx2xx4otqq4cf" path="res://卡牌/色块/false.png" id="4_pl0cf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nv82j"]
-radius = 30.1496
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv82j"]
 
 [node name="黄" type="Node2D"]
 script = ExtResource("1_lbve0")
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-48, -96)
-
-[node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(48, -96)
-
-[node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(-48, 0)
-
-[node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(48, 0)
-
-[node name="Marker2D5" type="Marker2D" parent="."]
-position = Vector2(-48, 96)
-
-[node name="Marker2D6" type="Marker2D" parent="."]
-position = Vector2(48, 96)
+[node name="Yellow" type="Sprite2D" parent="."]
+texture = ExtResource("2_nv82j")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_nv82j")
+shape = SubResource("RectangleShape2D_nv82j")
 
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[node name="Color" type="Sprite2D" parent="."]
+texture = ExtResource("3_g2a6i")
+hframes = 4
+
+[node name="False" type="Sprite2D" parent="."]
+texture = ExtResource("4_pl0cf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
